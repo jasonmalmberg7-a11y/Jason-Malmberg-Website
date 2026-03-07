@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Metropolitan Jazz Orchestra — big band jazz with orchestral sweep and relentless groove. Jason Malmberg, bandleader. Facebook and calendar.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:title" content="Metropolitan Jazz Orchestra">
+  <meta property="og:description" content="Big band jazz for the modern age. Orchestral sweep. Relentless groove.">
+  <meta property="og:type" content="website">
+
+  <title>Metropolitan Jazz Orchestra — Jason Malmberg</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root {
+      --card-accent:    var(--mjo-purple);
+      --card-accent-hi: var(--mjo-purple-hi);
+    }
+
+    .mjo-hero-bg {
+      background:
+        radial-gradient(ellipse 70% 50% at 30% 60%, rgba(92, 31, 133, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(139, 58, 191, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(201, 162, 39, 0.06) 0%, transparent 60%);
+    }
+
+    .band-hero--mjo .band-hero-label { color: var(--mjo-purple-hi); }
+
+    /* Ornate top bar */
+    .mjo-ornament-bar {
+      height: 5px;
+      background: linear-gradient(to right, var(--mjo-purple), var(--gold), var(--mjo-purple-hi), var(--gold-light));
+    }
+
+    /* Calendar embed */
+    .mjo-calendar {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-high);
+    }
+
+    .mjo-calendar iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      min-height: 500px;
+    }
+
+    /* Section numbers — Big Band program feel */
+    .program-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: var(--mjo-purple);
+      opacity: 0.15;
+      line-height: 1;
+      display: block;
+      margin-bottom: calc(-1 * var(--space-md));
+    }
+
+    /* Photo gallery */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .photo-tile {
+      aspect-ratio: 4 / 3;
+      background: var(--surface-high);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+
+    .photo-tile:hover { opacity: 0.85; }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%) contrast(1.05);
+    }
+
+    .photo-tile-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--mjo-purple-hi);
+      opacity: 0.2;
+      background: linear-gradient(135deg, var(--bg), var(--surface-high));
+    }
+
+    /* Big band member count */
+    .stat-row {
+      display: flex;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      margin-top: var(--space-xl);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-top: var(--space-xs);
+    }
+  </style>
+
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- =====================================================================
+       Site Header
+       ===================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Jason Malmberg — Home">
+        JASON <span>MALMBERG</span>
+      </a>
+
+      <div class="nav-vu" aria-hidden="true">
+        <span style="height:40%"></span>
+        <span style="height:70%"></span>
+        <span style="height:90%"></span>
+        <span style="height:50%"></span>
+        <span style="height:80%"></span>
+      </div>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false"
+          aria-label="Toggle navigation menu" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html#gigs">Gigs</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="this-house-has-lions.html">This House Has Lions</a></li>
+          <li><a href="nice-work.html">Nice Work</a></li>
+          <li><a href="metro-jazz.html" class="active">MJO</a></li>
+          <li><a href="index.html#social">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Main
+       ===================================================================== -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------
+         Hero
+         ----------------------------------------------------------------- -->
+    <section class="band-hero band-hero--mjo" aria-labelledby="mjo-hero-name">
+      <div class="band-hero-bg mjo-hero-bg" aria-hidden="true"></div>
+      <div class="band-hero-overlay" aria-hidden="true"></div>
+
+      <div class="band-hero-content">
+        <a href="index.html" class="band-hero-label">← Jason Malmberg</a>
+        <h1 class="band-hero-name" id="mjo-hero-name">
+          METROPOLITAN<br>JAZZ ORCHESTRA
+        </h1>
+        <p class="band-hero-tagline">
+          Big band sound for the modern age. Orchestral sweep. Relentless groove.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ornate accent bar -->
+    <div class="mjo-ornament-bar" aria-hidden="true"></div>
+
+    <!-- -----------------------------------------------------------------
+         Social Links Bar
+         ----------------------------------------------------------------- -->
+    <div class="band-links-bar" role="navigation" aria-label="Metropolitan Jazz Orchestra links">
+      <div class="band-links-inner">
+        <a href="https://www.facebook.com/mjo"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Metropolitan Jazz Orchestra on Facebook (opens in new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Facebook
+        </a>
+
+        <a href="#mjo-calendar"
+           class="band-link-pill"
+           aria-label="Jump to MJO calendar section">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.103 0-2 .898-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.102-.897-2-2-2zm0 16H5V8h14v11z"/>
+          </svg>
+          Calendar
+        </a>
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------------------
+         About
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="mjo-about-heading">
+      <div class="section-inner">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div class="reveal">
+            <span class="section-label">About</span>
+            <h2 class="section-title" id="mjo-about-heading" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+              The Orchestra
+            </h2>
+            <div style="margin-top: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 1rem;">
+              <p style="margin-bottom: 1rem;">
+                The Metropolitan Jazz Orchestra is a full big band bringing the grand tradition
+                of orchestral jazz into the present. Under Jason Malmberg's direction, the
+                ensemble delivers programs that swing from the classic repertoire to original
+                commissions.
+              </p>
+              <p style="margin-bottom: 1rem;">
+                The orchestra brings together the city's finest jazz musicians for concerts,
+                festivals, and special events. Every performance is a full-production event.
+              </p>
+              <p>
+                In the lineage of Mingus's Jazz Workshop, Duke Ellington's band, and the
+                great Count Basie Orchestra — but with eyes forward.
+              </p>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat-item">
+                <span class="stat-number">18+</span>
+                <span class="stat-label">Musicians</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Sections</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Groove</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <div style="
+              aspect-ratio: 4/3;
+              background: var(--surface);
+              border: 1px solid var(--border);
+              border-radius: 4px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: var(--font-display);
+              font-size: 3rem;
+              color: var(--mjo-purple-hi);
+              opacity: 0.3;
+              letter-spacing: 0.05em;
+              text-align: center;
+              line-height: 1.2;
+              padding: 1rem;
+            " aria-hidden="true">METRO<br>JAZZ<br>ORCH.</div>
+            <!--
+              Replace with real band photo:
+              <img src="images/mjo-about.jpg" alt="Metropolitan Jazz Orchestra on stage"
+                   style="border-radius: 4px; border: 1px solid var(--border);">
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Calendar
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" id="mjo-calendar" aria-labelledby="mjo-calendar-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Dates</span>
+          <h2 class="section-title" id="mjo-calendar-heading">MJO Calendar</h2>
+          <p class="section-subtitle">
+            Concerts, festivals, and special events.
+          </p>
+        </header>
+
+        <div class="mjo-calendar reveal reveal-delay-1">
+          <!--
+            MJO CALENDAR EMBED
+            ──────────────────
+            Replace the placeholder below with the MJO's actual calendar embed.
+
+            Options:
+            1. Google Calendar iframe:
+               <iframe
+                 src="MJO_GOOGLE_CALENDAR_EMBED_URL"
+                 title="Metropolitan Jazz Orchestra Event Calendar"
+                 width="100%"
+                 height="600"
+                 frameborder="0"
+                 scrolling="no"
+                 aria-label="MJO upcoming events calendar">
+               </iframe>
+
+            2. If the MJO uses another calendar service (Eventbrite, Songkick, etc.),
+               paste their embed code here instead.
+
+            3. If no embed is available, link to their calendar page:
+               <div style="padding: 2rem; text-align: center;">
+                 <a href="CALENDAR_URL" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                   View MJO Calendar →
+                 </a>
+               </div>
+          -->
+          <div class="calendar-placeholder">
+            <p>MJO Calendar embed goes here.</p>
+            <p style="font-size:0.85rem; font-family: var(--font-body); font-style:normal; margin-top: 0.5rem;">
+              Replace this block with the MJO's calendar embed URL or widget code.<br>
+              See the HTML comment above for options.
+            </p>
+            <!--
+            <iframe
+              src="MJO_CALENDAR_URL"
+              title="Metropolitan Jazz Orchestra Calendar"
+              width="100%"
+              height="600"
+              frameborder="0"
+              aria-label="Metropolitan Jazz Orchestra calendar"
+            ></iframe>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Social Media
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="mjo-social-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Social</span>
+          <h2 class="section-title" id="mjo-social-heading">Follow the Orchestra</h2>
+        </header>
+
+        <div class="social-grid">
+
+          <!-- Facebook -->
+          <div class="social-block reveal">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--fb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name">Facebook</div>
+                <div class="social-block-handle">facebook.com/mjo</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <div class="fb-embed-wrapper">
+                <div class="fb-page"
+                  data-href="https://www.facebook.com/mjo"
+                  data-tabs="timeline"
+                  data-width="500"
+                  data-height="500"
+                  data-small-header="true"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="false"
+                  aria-label="Metropolitan Jazz Orchestra Facebook page feed">
+                </div>
+              </div>
+              <a href="https://www.facebook.com/mjo"
+                 class="social-cta"
+                 style="margin-top: 0.75rem; display: block;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Visit Metropolitan Jazz Orchestra on Facebook (opens in new tab)">
+                View on Facebook →
+              </a>
+            </div>
+          </div>
+
+          <!-- Program note card -->
+          <div class="social-block reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl);">
+            <span style="
+              font-size: 0.72rem;
+              font-weight: 600;
+              letter-spacing: 0.3em;
+              text-transform: uppercase;
+              color: var(--mjo-purple-hi);
+              display: block;
+              margin-bottom: var(--space-sm);
+            ">Program Note</span>
+            <div style="
+              font-family: var(--font-serif);
+              font-size: 1.15rem;
+              font-style: italic;
+              color: var(--text-muted);
+              line-height: 1.7;
+              margin-bottom: var(--space-lg);
+            ">
+              "The big band is the ultimate democratic orchestra — every voice matters,
+              every section essential. But someone has to hold down the bottom."
+            </div>
+            <div style="
+              font-size: 0.75rem;
+              letter-spacing: 0.2em;
+              text-transform: uppercase;
+              color: var(--gold);
+            ">— Jason Malmberg, Bassist &amp; Bandleader</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Photos
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" aria-labelledby="mjo-photos-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title" id="mjo-photos-heading">Photos</h2>
+        </header>
+
+        <div class="photo-grid reveal">
+          <div class="photo-tile"><div class="photo-tile-placeholder" aria-hidden="true">𝄞</div></div>
+          <div class="photo-tile"><div class="photo-tile-placeholder" aria-hidden="true">♩</div></div>
+          <div class="photo-tile"><div class="photo-tile-placeholder" aria-hidden="true">♫</div></div>
+          <div class="photo-tile"><div class="photo-tile-placeholder" aria-hidden="true">𝄢</div></div>
+        </div>
+        <!--
+          Replace photo placeholders with real images:
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <img src="images/mjo-concert-1.jpg" alt="Metropolitan Jazz Orchestra performing at [Venue]">
+            </div>
+            ...
+          </div>
+        -->
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim); font-style: italic;">
+          Replace placeholder tiles with actual photos.
+        </p>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Mingus Quote
+         ----------------------------------------------------------------- -->
+    <div class="quote-block reveal">
+      <blockquote>
+        "Anyone can make the simple complicated. Creativity is making the complicated simple."
+      </blockquote>
+      <cite>Charles Mingus</cite>
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       Footer
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">METROPOLITAN <span>JAZZ ORCHESTRA</span></div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">← Jason Malmberg</a>
+        <a href="https://www.facebook.com/mjo" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="#mjo-calendar">Calendar</a>
+        <a href="this-house-has-lions.html">This House Has Lions</a>
+        <a href="nice-work.html">Nice Work</a>
+      </nav>
+
+      <p class="footer-copy">
+        &copy; <span class="copy-year"></span> Jason Malmberg / Metropolitan Jazz Orchestra.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Easter egg overlays -->
+  <div id="pjm-overlay" role="dialog" aria-modal="true" aria-labelledby="pjm-title" hidden>
+    <h2 class="pjm-title" id="pjm-title">PUNK JAZZ<br>MODE</h2>
+    <p class="pjm-subtitle">You found the secret. The bassists who changed everything:</p>
+    <ul class="pjm-influences" role="list">
+      <li class="pjm-influence">Joe Lally</li>
+      <li class="pjm-influence">Dee Dee Ramone</li>
+      <li class="pjm-influence">Steve Youth</li>
+      <li class="pjm-influence">Roland Kirk</li>
+      <li class="pjm-influence">Charles Mingus</li>
+      <li class="pjm-influence">Jaco Pastorius</li>
+    </ul>
+    <button class="pjm-close" id="pjm-close">Close ✕</button>
+  </div>
+
+  <div id="count-in-toast" role="status" aria-live="assertive" aria-atomic="true">1! 2! 3! 4!</div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/easter-eggs.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nice Work Jazz Ensemble — Jason Malmberg's jazz ensemble. Sophisticated, swinging, spontaneous. niceworkjazz.com">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:title" content="Nice Work Jazz Ensemble">
+  <meta property="og:description" content="Sophisticated jazz ensemble led by Jason Malmberg. Visit niceworkjazz.com.">
+  <meta property="og:type" content="website">
+
+  <title>Nice Work Jazz Ensemble — Jason Malmberg</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root {
+      --card-accent:    var(--nwje-blue);
+      --card-accent-hi: var(--nwje-blue-hi);
+    }
+
+    .nwje-hero-bg {
+      background:
+        radial-gradient(ellipse 70% 50% at 30% 60%, rgba(28, 61, 140, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(48, 96, 204, 0.08) 0%, transparent 60%);
+    }
+
+    .band-hero--nwje .band-hero-label { color: var(--nwje-blue-hi); }
+
+    /* Blue Note–inspired decorative bar */
+    .bluenote-bar {
+      height: 6px;
+      background: linear-gradient(to right, var(--nwje-blue), var(--nwje-blue-hi), var(--gold));
+    }
+
+    /* External site link card */
+    .external-site-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg) var(--space-xl);
+      background: var(--surface-high);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: border-color 0.3s, background 0.3s;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .external-site-card:hover {
+      border-color: var(--nwje-blue-hi);
+      background: rgba(28, 61, 140, 0.08);
+    }
+
+    .external-site-card-info {}
+
+    .external-site-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--nwje-blue-hi);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .external-site-name {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .external-site-url {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: var(--space-xs);
+    }
+
+    .external-site-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.85rem 2rem;
+      background: var(--nwje-blue);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .external-site-btn:hover, .external-site-btn:focus-visible {
+      background: var(--nwje-blue-hi);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Photo gallery */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .photo-tile {
+      aspect-ratio: 4 / 3;
+      background: var(--surface-high);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+
+    .photo-tile:hover { opacity: 0.85; }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%) contrast(1.05);
+    }
+
+    .photo-tile-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--nwje-blue-hi);
+      opacity: 0.2;
+      background: linear-gradient(135deg, var(--bg), var(--surface-high));
+    }
+
+    @media (max-width: 768px) {
+      .external-site-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space-lg);
+      }
+    }
+  </style>
+
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- =====================================================================
+       Site Header
+       ===================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Jason Malmberg — Home">
+        JASON <span>MALMBERG</span>
+      </a>
+
+      <div class="nav-vu" aria-hidden="true">
+        <span style="height:40%"></span>
+        <span style="height:70%"></span>
+        <span style="height:90%"></span>
+        <span style="height:50%"></span>
+        <span style="height:80%"></span>
+      </div>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false"
+          aria-label="Toggle navigation menu" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html#gigs">Gigs</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="this-house-has-lions.html">This House Has Lions</a></li>
+          <li><a href="nice-work.html" class="active">Nice Work</a></li>
+          <li><a href="metro-jazz.html">MJO</a></li>
+          <li><a href="index.html#social">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Main
+       ===================================================================== -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------
+         Hero
+         ----------------------------------------------------------------- -->
+    <section class="band-hero band-hero--nwje" aria-labelledby="nwje-hero-name">
+      <div class="band-hero-bg nwje-hero-bg" aria-hidden="true"></div>
+      <div class="band-hero-overlay" aria-hidden="true"></div>
+
+      <div class="band-hero-content">
+        <a href="index.html" class="band-hero-label">← Jason Malmberg</a>
+        <h1 class="band-hero-name" id="nwje-hero-name">
+          NICE WORK<br>JAZZ ENSEMBLE
+        </h1>
+        <p class="band-hero-tagline">
+          Swinging hard, playing pretty. Sophisticated and spontaneous.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blue Note–style accent bar -->
+    <div class="bluenote-bar" aria-hidden="true"></div>
+
+    <!-- -----------------------------------------------------------------
+         Social Links Bar
+         ----------------------------------------------------------------- -->
+    <div class="band-links-bar" role="navigation" aria-label="Nice Work Jazz Ensemble links">
+      <div class="band-links-inner">
+        <a href="https://niceworkjazz.com"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Nice Work Jazz Ensemble official website (opens in new tab)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 17.93V16h2v1.93A8 8 0 014.07 13H6v-2H4.07A8 8 0 0111 4.07V6h2V4.07A8 8 0 0119.93 11H18v2h1.93A8 8 0 0113 19.93z"/>
+          </svg>
+          niceworkjazz.com
+        </a>
+
+        <a href="https://www.facebook.com/niceworkjazzensemble"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Nice Work Jazz Ensemble on Facebook (opens in new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------------------
+         About
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="nwje-about-heading">
+      <div class="section-inner">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div class="reveal">
+            <span class="section-label">About</span>
+            <h2 class="section-title" id="nwje-about-heading" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+              Nice Work
+            </h2>
+            <div style="margin-top: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 1rem;">
+              <p style="margin-bottom: 1rem;">
+                Nice Work Jazz Ensemble brings a modern sensibility to the jazz tradition.
+                Originals, arrangements, and the occasional deep-cut standard — always in service
+                of the music and the moment.
+              </p>
+              <p style="margin-bottom: 1rem;">
+                The ensemble draws from the workshop tradition of Charles Mingus: structured
+                enough to guide the music, free enough to let it breathe.
+              </p>
+              <p>
+                Visit the full site at <a href="https://niceworkjazz.com" target="_blank" rel="noopener noreferrer">niceworkjazz.com</a>.
+              </p>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div style="
+              aspect-ratio: 4/3;
+              background: var(--surface);
+              border: 1px solid var(--border);
+              border-radius: 4px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: var(--font-display);
+              font-size: 3.5rem;
+              color: var(--nwje-blue-hi);
+              opacity: 0.3;
+              letter-spacing: 0.05em;
+            " aria-hidden="true">NICE WORK</div>
+            <!--
+              Replace with real band photo:
+              <img src="images/nwje-about.jpg" alt="Nice Work Jazz Ensemble band photo"
+                   style="border-radius: 4px; border: 1px solid var(--border);">
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Official Website Feature
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" aria-labelledby="nwje-site-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Website</span>
+          <h2 class="section-title" id="nwje-site-heading">Official Site</h2>
+          <p class="section-subtitle">
+            For the full Nice Work experience — gigs, music, and more.
+          </p>
+        </header>
+
+        <a href="https://niceworkjazz.com"
+           class="external-site-card reveal"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Visit niceworkjazz.com (opens in new tab)">
+          <div class="external-site-card-info">
+            <span class="external-site-label">Official website</span>
+            <div class="external-site-name">niceworkjazz.com</div>
+            <div class="external-site-url">Gig calendar, music, and booking info</div>
+          </div>
+          <span class="external-site-btn" aria-hidden="true">
+            Visit Site →
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Social Media
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="nwje-social-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Social</span>
+          <h2 class="section-title" id="nwje-social-heading">Stay Connected</h2>
+        </header>
+
+        <div class="social-grid">
+
+          <!-- Facebook -->
+          <div class="social-block reveal">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--fb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name">Facebook</div>
+                <div class="social-block-handle">facebook.com/niceworkjazzensemble</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <div class="fb-embed-wrapper">
+                <div class="fb-page"
+                  data-href="https://www.facebook.com/niceworkjazzensemble"
+                  data-tabs="timeline"
+                  data-width="500"
+                  data-height="500"
+                  data-small-header="true"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="false"
+                  aria-label="Nice Work Jazz Ensemble Facebook page feed">
+                </div>
+              </div>
+              <a href="https://www.facebook.com/niceworkjazzensemble"
+                 class="social-cta"
+                 style="margin-top: 0.75rem; display: block;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Visit Nice Work Jazz Ensemble on Facebook (opens in new tab)">
+                View on Facebook →
+              </a>
+            </div>
+          </div>
+
+          <!-- Info card for external site -->
+          <div class="social-block reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl);">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.08em; color: var(--text); margin-bottom: var(--space-md);">
+              NICE WORK JAZZ ENSEMBLE
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: var(--space-lg);">
+              For gig listings, booking inquiries, and the full music catalog, visit the
+              official Nice Work Jazz Ensemble website.
+            </p>
+            <a href="https://niceworkjazz.com"
+               class="btn btn-outline"
+               style="border-color: var(--nwje-blue-hi); color: var(--nwje-blue-hi); align-self: flex-start;"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Visit niceworkjazz.com (opens in new tab)">
+              niceworkjazz.com →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Photos
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" aria-labelledby="nwje-photos-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title" id="nwje-photos-heading">Photos</h2>
+        </header>
+
+        <div class="photo-grid reveal">
+          <div class="photo-tile">
+            <div class="photo-tile-placeholder" aria-hidden="true">♪</div>
+          </div>
+          <div class="photo-tile">
+            <div class="photo-tile-placeholder" aria-hidden="true">𝄞</div>
+          </div>
+          <div class="photo-tile">
+            <div class="photo-tile-placeholder" aria-hidden="true">♫</div>
+          </div>
+          <div class="photo-tile">
+            <div class="photo-tile-placeholder" aria-hidden="true">♪</div>
+          </div>
+        </div>
+        <!--
+          To add real photos, replace each .photo-tile div with:
+          <div class="photo-tile">
+            <img src="images/nwje-live-1.jpg" alt="Nice Work Jazz Ensemble live at [Venue Name]">
+          </div>
+        -->
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim); font-style: italic;">
+          Replace placeholder tiles with actual band photos.
+        </p>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Jaco Pastorius Quote
+         ----------------------------------------------------------------- -->
+    <div class="quote-block reveal">
+      <blockquote>
+        "Playing a melody beautifully is harder than playing it fast."
+      </blockquote>
+      <cite>Jaco Pastorius</cite>
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       Footer
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">NICE WORK <span>JAZZ ENSEMBLE</span></div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">← Jason Malmberg</a>
+        <a href="https://niceworkjazz.com" target="_blank" rel="noopener noreferrer">niceworkjazz.com</a>
+        <a href="https://www.facebook.com/niceworkjazzensemble" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="this-house-has-lions.html">This House Has Lions</a>
+        <a href="metro-jazz.html">MJO</a>
+      </nav>
+
+      <p class="footer-copy">
+        &copy; <span class="copy-year"></span> Jason Malmberg / Nice Work Jazz Ensemble.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Easter egg overlays -->
+  <div id="pjm-overlay" role="dialog" aria-modal="true" aria-labelledby="pjm-title" hidden>
+    <h2 class="pjm-title" id="pjm-title">PUNK JAZZ<br>MODE</h2>
+    <p class="pjm-subtitle">You found the secret. The bassists who changed everything:</p>
+    <ul class="pjm-influences" role="list">
+      <li class="pjm-influence">Joe Lally</li>
+      <li class="pjm-influence">Dee Dee Ramone</li>
+      <li class="pjm-influence">Steve Youth</li>
+      <li class="pjm-influence">Roland Kirk</li>
+      <li class="pjm-influence">Charles Mingus</li>
+      <li class="pjm-influence">Jaco Pastorius</li>
+    </ul>
+    <button class="pjm-close" id="pjm-close">Close ✕</button>
+  </div>
+
+  <div id="count-in-toast" role="status" aria-live="assertive" aria-atomic="true">1! 2! 3! 4!</div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/easter-eggs.js" defer></script>
+
+</body>
+</html>

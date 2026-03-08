@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jason Malmberg — Bassist and Bandleader. Upcoming gigs, releases, and projects including This House Has Lions, Nice Work Jazz Ensemble, and Metropolitan Jazz Orchestra.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jason Malmberg — Bassist & Bandleader">
+  <meta property="og:description" content="Gigs, releases, and projects. Where punk meets jazz.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jasonmalmberg.com">
+
+  <title>Jason Malmberg — Bassist & Bandleader</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Facebook SDK (async, defer) -->
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
+    nonce="fbsdk">
+  </script>
+</head>
+<body>
+
+  <!-- =====================================================================
+       Skip Navigation (Accessibility)
+       ===================================================================== -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- =====================================================================
+       Loading Screen
+       ===================================================================== -->
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="loader-text" aria-hidden="true">JASON MALMBERG</div>
+    <div class="loader-sub" aria-hidden="true">Bassist &amp; Bandleader</div>
+    <div class="vu-loader" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Site Header
+       ===================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <!-- Logo / site title — click 3× for Dee Dee Easter egg -->
+      <a href="index.html" class="nav-logo" id="site-logo" aria-label="Jason Malmberg — Home">
+        JASON <span>MALMBERG</span>
+      </a>
+
+      <!-- VU meter (decorative) -->
+      <div class="nav-vu" aria-hidden="true">
+        <span style="height:40%"></span>
+        <span style="height:70%"></span>
+        <span style="height:90%"></span>
+        <span style="height:50%"></span>
+        <span style="height:80%"></span>
+      </div>
+
+      <!-- Primary navigation -->
+      <nav id="primary-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          aria-controls="nav-links"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+          id="nav-toggle"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="#gigs" class="active">Gigs</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="this-house-has-lions.html">This House Has Lions</a></li>
+          <li><a href="nice-work.html">Nice Work</a></li>
+          <li><a href="metro-jazz.html">MJO</a></li>
+          <li><a href="#social">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Main Content
+       ===================================================================== -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------
+         Hero
+         ----------------------------------------------------------------- -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <!-- Replace src with actual photo; alt text describes the image -->
+      <div class="hero-photo no-image" aria-hidden="true">
+        <!--
+          TO ADD YOUR PHOTO:
+          <img src="images/jason-malmberg-bass.jpg"
+               alt="Jason Malmberg playing bass on stage">
+          Then remove the "no-image" class above.
+        -->
+      </div>
+
+      <div class="hero-content">
+        <span class="hero-eyebrow">Bassist · Bandleader · Sound Architect</span>
+
+        <h1 class="hero-name" id="hero-heading">
+          JASON
+          <em>MALMBERG</em>
+        </h1>
+
+        <p class="hero-tagline">
+          Where jazz chops meet punk guts.
+          Low end with purpose.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#gigs" class="btn btn-primary">Upcoming Gigs</a>
+          <a href="#projects" class="btn btn-outline">See All Projects</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">scroll</div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Upcoming Gigs — Google Calendar
+         ----------------------------------------------------------------- -->
+    <section class="section gigs-section" id="gigs" aria-labelledby="gigs-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Live</span>
+          <h2 class="section-title" id="gigs-heading">Upcoming Gigs</h2>
+          <p class="section-subtitle">
+            From jazz clubs to basement shows — always on the low end.
+          </p>
+        </header>
+
+        <div class="calendar-container reveal reveal-delay-1">
+          <!--
+            GOOGLE CALENDAR EMBED
+            ────────────────────
+            Replace the src URL with your calendar's embed URL.
+            Get it from: Google Calendar → Settings → [Your Calendar] → "Integrate calendar" → Embed code
+            Example src format:
+              https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40gmail.com&ctz=America%2FChicago&bgcolor=%230a0a0a&color=%23c9a227&showTitle=0&showNav=1&showPrint=0&showTabs=0
+
+            For dark styling, append:
+              &bgcolor=%230a0a0a
+          -->
+          <div class="calendar-placeholder">
+            <p>Google Calendar embed goes here.</p>
+            <p style="font-size:0.85rem; font-family: var(--font-body); font-style:normal;">
+              Replace this block with your Google Calendar iframe embed code.<br>
+              See the HTML comment above for instructions.
+            </p>
+            <!--
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=America%2FChicago&bgcolor=%230a0a0a&showTitle=0&showNav=1&showPrint=0&showTabs=0"
+              title="Jason Malmberg Gig Calendar"
+              width="100%"
+              height="600"
+              frameborder="0"
+              scrolling="no"
+              aria-label="Upcoming gig calendar"
+            ></iframe>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Quote — Charles Mingus
+         ----------------------------------------------------------------- -->
+    <div class="quote-block reveal">
+      <blockquote>
+        "Making the simple complicated is commonplace;<br>
+        making the complicated simple — that's creativity."
+      </blockquote>
+      <cite>Charles Mingus</cite>
+    </div>
+
+    <!-- -----------------------------------------------------------------
+         Projects / Band Cards
+         ----------------------------------------------------------------- -->
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Projects</span>
+          <h2 class="section-title" id="projects-heading">The Bands</h2>
+          <p class="section-subtitle">
+            Three ensembles. One bass. No compromises.
+          </p>
+        </header>
+
+        <div class="bands-grid">
+
+          <!-- This House Has Lions -->
+          <article class="band-card band-card--thhl reveal" aria-labelledby="thhl-card-name">
+            <div class="band-card-image">
+              <!--
+                <img src="images/thhl-band.jpg" alt="This House Has Lions performing live">
+              -->
+              <div class="band-card-image-placeholder" aria-hidden="true">THHL</div>
+            </div>
+            <div class="band-card-accent-bar"></div>
+            <div class="band-card-body">
+              <h3 class="band-card-name" id="thhl-card-name">This House Has Lions</h3>
+              <p class="band-card-desc">
+                Hard-hitting original music with jazz language and punk conviction.
+                New album dropping this year. Roar.
+              </p>
+              <a href="this-house-has-lions.html" class="band-card-link" aria-label="Visit This House Has Lions page">
+                Explore
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Nice Work Jazz Ensemble -->
+          <article class="band-card band-card--nwje reveal reveal-delay-1" aria-labelledby="nwje-card-name">
+            <div class="band-card-image">
+              <!--
+                <img src="images/nice-work-band.jpg" alt="Nice Work Jazz Ensemble on stage">
+              -->
+              <div class="band-card-image-placeholder" aria-hidden="true">NW</div>
+            </div>
+            <div class="band-card-accent-bar"></div>
+            <div class="band-card-body">
+              <h3 class="band-card-name" id="nwje-card-name">Nice Work Jazz Ensemble</h3>
+              <p class="band-card-desc">
+                Swinging hard and playing pretty. Sophisticated, spontaneous, and always in the pocket.
+              </p>
+              <a href="nice-work.html" class="band-card-link" aria-label="Visit Nice Work Jazz Ensemble page">
+                Explore
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Metropolitan Jazz Orchestra -->
+          <article class="band-card band-card--mjo reveal reveal-delay-2" aria-labelledby="mjo-card-name">
+            <div class="band-card-image">
+              <!--
+                <img src="images/mjo-band.jpg" alt="Metropolitan Jazz Orchestra performing">
+              -->
+              <div class="band-card-image-placeholder" aria-hidden="true">MJO</div>
+            </div>
+            <div class="band-card-accent-bar"></div>
+            <div class="band-card-body">
+              <h3 class="band-card-name" id="mjo-card-name">Metropolitan Jazz Orchestra</h3>
+              <p class="band-card-desc">
+                Big band sound for the modern age. Orchestral sweep. Relentless groove.
+              </p>
+              <a href="metro-jazz.html" class="band-card-link" aria-label="Visit Metropolitan Jazz Orchestra page">
+                Explore
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Personal Social Media
+         ----------------------------------------------------------------- -->
+    <section class="section social-section" id="social" aria-labelledby="social-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Connect</span>
+          <h2 class="section-title" id="social-heading">Follow Along</h2>
+          <p class="section-subtitle">
+            Behind the scenes, gig shots, studio dispatches, and late-night thoughts.
+          </p>
+        </header>
+
+        <div class="social-grid">
+
+          <!-- Instagram -->
+          <div class="social-block reveal" aria-labelledby="ig-block-title">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--ig" aria-hidden="true">
+                <!-- Instagram icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name" id="ig-block-title">Instagram</div>
+                <div class="social-block-handle">@jasonmalmberg</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <!--
+                Instagram no longer provides a simple feed embed without an approved app.
+                This placeholder links out to the profile.
+                For a real feed, consider a third-party service like Elfsight or Curator.io,
+                or use the Instagram Graph API with a long-lived access token.
+              -->
+              <div class="ig-grid" aria-hidden="true">
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+              </div>
+              <a href="https://www.instagram.com/jasonmalmberg"
+                 class="social-cta"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View @jasonmalmberg on Instagram (opens in new tab)">
+                View on Instagram →
+              </a>
+            </div>
+          </div>
+
+          <!-- Facebook -->
+          <div class="social-block reveal reveal-delay-1" aria-labelledby="fb-block-title">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--fb" aria-hidden="true">
+                <!-- Facebook icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name" id="fb-block-title">Facebook</div>
+                <div class="social-block-handle">facebook.com/jasonmalmberg</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <div class="fb-embed-wrapper">
+                <!-- Facebook Page Plugin — see https://developers.facebook.com/docs/plugins/page-plugin/ -->
+                <div class="fb-page"
+                  data-href="https://www.facebook.com/jasonmalmberg"
+                  data-tabs="timeline"
+                  data-width="500"
+                  data-height="400"
+                  data-small-header="true"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="false"
+                  aria-label="Jason Malmberg Facebook page feed">
+                </div>
+              </div>
+              <a href="https://www.facebook.com/jasonmalmberg"
+                 class="social-cta"
+                 style="margin-top: 0.75rem; display: block;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Visit Jason Malmberg on Facebook (opens in new tab)">
+                View on Facebook →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       Footer
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">JASON <span>MALMBERG</span></div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="this-house-has-lions.html">This House Has Lions</a>
+        <a href="nice-work.html">Nice Work</a>
+        <a href="metro-jazz.html">MJO</a>
+        <a href="https://www.instagram.com/jasonmalmberg" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/jasonmalmberg" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </nav>
+
+      <p class="footer-copy">
+        &copy; <span id="copy-year"></span> Jason Malmberg. All rights reserved.<br>
+        <!-- Hidden Easter egg: hover/focus to reveal -->
+        <a href="#" class="secret-link" tabindex="0" aria-label="Secret message" role="note">
+          "the first note you play is a statement of intent" — j.l.
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       Easter Egg — Punk Jazz Mode Overlay
+       ===================================================================== -->
+  <div id="pjm-overlay" role="dialog" aria-modal="true" aria-labelledby="pjm-title" hidden>
+    <h2 class="pjm-title" id="pjm-title">PUNK JAZZ<br>MODE</h2>
+    <p class="pjm-subtitle">
+      You found the secret. The bassists who changed everything:
+    </p>
+    <ul class="pjm-influences" role="list">
+      <li class="pjm-influence">Joe Lally</li>
+      <li class="pjm-influence">Dee Dee Ramone</li>
+      <li class="pjm-influence">Steve Youth</li>
+      <li class="pjm-influence">Roland Kirk</li>
+      <li class="pjm-influence">Charles Mingus</li>
+      <li class="pjm-influence">Jaco Pastorius</li>
+    </ul>
+    <button class="pjm-close" id="pjm-close">Close ✕</button>
+  </div>
+
+  <!-- Easter Egg — Dee Dee count-in toast -->
+  <div id="count-in-toast" role="status" aria-live="assertive" aria-atomic="true">1! 2! 3! 4!</div>
+
+  <!-- =====================================================================
+       Scripts
+       ===================================================================== -->
+  <script src="js/main.js" defer></script>
+  <script src="js/easter-eggs.js" defer></script>
+
+</body>
+</html>

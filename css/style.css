@@ -98,7 +98,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Grain overlay — the vinyl texture of the web */
+/* Grain overlay — the vinyl texture of the web.
+   z-index: 0 keeps it above the bare body background but BELOW main content
+   (main gets z-index: 1) so cross-origin iframes (Google Calendar, Facebook)
+   are never covered by this layer, which would suppress their rendering. */
 body::after {
   content: '';
   position: fixed;
@@ -107,7 +110,15 @@ body::after {
   background-size: 200px 200px;
   opacity: 0.04;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 0;
+}
+
+/* All page content stacks above the grain overlay */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -634,7 +645,6 @@ ul {
 
 .calendar-container {
   border-radius: 4px;
-  overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface-high);
 }
@@ -642,8 +652,8 @@ ul {
 .calendar-container iframe {
   display: block;
   width: 100%;
+  height: 600px;
   border: none;
-  min-height: 500px;
 }
 
 .calendar-placeholder {

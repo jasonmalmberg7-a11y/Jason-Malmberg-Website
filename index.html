@@ -289,27 +289,49 @@
               </div>
             </div>
             <div class="social-block-content">
+
               <!--
-                Instagram no longer provides a simple feed embed without an approved app.
-                This placeholder links out to the profile.
-                For a real feed, consider a third-party service like Elfsight or Curator.io,
-                or use the Instagram Graph API with a long-lived access token.
+                INSTAGRAM FEED EMBED
+                ─────────────────────────────────────────────────────────────
+                Instagram's API requires OAuth and a backend to refresh tokens
+                every 60 days — not compatible with a static GitHub Pages site.
+
+                RECOMMENDED: Use Behold (https://behold.so) — free tier,
+                static-site friendly, handles all OAuth on their servers.
+
+                Setup (5 min):
+                  1. Sign up at behold.so and connect @jasonmalmberg
+                  2. Create a widget and copy the embed snippet
+                  3. Paste it here, replacing the ig-cta-panel div below
+
+                Example embed snippet from Behold:
+                  <div id="behold-widget-XXXXX"></div>
+                  <script src="https://w.behold.so/widget.js" type="module"></script>
+
+                Alternative: LightWidget (https://lightwidget.com) — free
+                with small branding badge, generates an iframe embed code.
               -->
-              <div class="ig-grid" aria-hidden="true">
-                <div class="ig-tile"></div>
-                <div class="ig-tile"></div>
-                <div class="ig-tile"></div>
-                <div class="ig-tile"></div>
-                <div class="ig-tile"></div>
-                <div class="ig-tile"></div>
+
+              <div class="ig-cta-panel">
+                <a href="https://www.instagram.com/jasonmalmberg"
+                   class="ig-cta-link"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Follow @jasonmalmberg on Instagram (opens in new tab)">
+                  <span class="ig-cta-at">@</span>jasonmalmberg
+                </a>
+                <p class="ig-cta-desc">
+                  Gig shots, backstage moments, and late-night studio sessions.
+                </p>
+                <a href="https://www.instagram.com/jasonmalmberg"
+                   class="social-cta"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Follow @jasonmalmberg on Instagram (opens in new tab)">
+                  Follow on Instagram →
+                </a>
               </div>
-              <a href="https://www.instagram.com/jasonmalmberg"
-                 class="social-cta"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 aria-label="View @jasonmalmberg on Instagram (opens in new tab)">
-                View on Instagram →
-              </a>
+
             </div>
           </div>
 

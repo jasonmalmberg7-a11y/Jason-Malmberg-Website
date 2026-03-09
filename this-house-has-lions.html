@@ -278,8 +278,14 @@
           <!-- Debut album -->
           <article class="album-card reveal" aria-labelledby="album-debut-title">
             <div class="album-art">
+              <!--
+                Upload the album cover to images/thhl-debut-album.jpg to make this appear.
+                The placeholder below shows automatically until the file is present.
+              -->
               <img src="images/thhl-debut-album.jpg"
-                   alt="This House Has Lions — self-titled debut album cover: bold brushstroke artwork with a lion, teal and red tones">
+                   alt="This House Has Lions — self-titled debut album cover: bold brushstroke artwork with a lion, teal and red tones"
+                   onerror="this.style.display='none'">
+              <div class="album-art-placeholder" aria-hidden="true">THHL</div>
               <span class="album-badge">Album</span>
             </div>
             <div class="album-body">

@@ -1163,6 +1163,23 @@ ul {
   object-fit: cover;
 }
 
+/* Featured (single) album — side-by-side layout */
+.album-card--featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.album-card--featured .album-art {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 320px;
+}
+
+.album-card--featured .album-art img {
+  object-fit: contain;
+}
+
 .album-art-placeholder {
   position: absolute;
   inset: 0;
@@ -1543,6 +1560,14 @@ ul {
 
   .albums-grid {
     grid-template-columns: 1fr;
+  }
+
+  .album-card--featured {
+    grid-template-columns: 1fr;
+  }
+
+  .album-card--featured .album-art {
+    min-height: 260px;
   }
 
   .band-hero {

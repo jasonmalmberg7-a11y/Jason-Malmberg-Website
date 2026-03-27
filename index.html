@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0&appId=1512800177190302">
@@ -256,6 +257,114 @@
     </section>
 
     <!-- -----------------------------------------------------------------
+         Listen — Auto-rotating Spotify player
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" id="listen" aria-labelledby="listen-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Music</span>
+          <h2 class="section-title" id="listen-heading">Listen</h2>
+          <p class="section-subtitle">Stream music from my projects.</p>
+        </header>
+
+        <div class="music-rotator reveal">
+          <div class="music-rotator-tabs" role="tablist" aria-label="Select a project to listen to">
+            <button class="music-tab active" role="tab" aria-selected="true"
+                    aria-controls="player-thhl" id="tab-thhl">
+              This House Has Lions
+            </button>
+            <button class="music-tab" role="tab" aria-selected="false"
+                    aria-controls="player-nwje" id="tab-nwje">
+              Nice Work Jazz Ensemble
+            </button>
+          </div>
+
+          <div class="music-rotator-panels">
+            <div class="music-panel active" id="player-thhl" role="tabpanel" aria-labelledby="tab-thhl">
+              <iframe data-testid="embed-iframe" style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/2JGfqoyo5bhN7Zk2eY21i3?utm_source=generator"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="This House Has Lions on Spotify"
+                aria-label="Spotify player: This House Has Lions">
+              </iframe>
+            </div>
+            <div class="music-panel" id="player-nwje" role="tabpanel" aria-labelledby="tab-nwje" hidden>
+              <iframe data-testid="embed-iframe" style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/1P1reoI2gApaacXnDlA5gs?utm_source=generator"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="Nice Work Jazz Ensemble on Spotify"
+                aria-label="Spotify player: Nice Work Jazz Ensemble">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="music-rotator-dots" aria-hidden="true">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Mailing List — Mailchimp signup
+         ----------------------------------------------------------------- -->
+    <section class="section mailchimp-section" id="mailing-list" aria-labelledby="mailing-list-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Stay in the Loop</span>
+          <h2 class="section-title" id="mailing-list-heading">Join the List</h2>
+          <p class="section-subtitle">Gig announcements, new releases, and updates — straight to your inbox.</p>
+        </header>
+
+        <div class="mailchimp-form-wrap reveal">
+          <div id="mc_embed_signup">
+            <form action="https://github.us6.list-manage.com/subscribe/post?u=c7bdd64432cecf9e79937b43a&amp;id=da9a0825af&amp;f_id=000f71e0f0"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="validate"
+                  target="_blank">
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group">
+                  <label for="mce-FNAME">First Name</label>
+                  <input type="text" name="FNAME" class="text" id="mce-FNAME" value="">
+                </div>
+                <div class="mc-field-group">
+                  <label for="mce-LNAME">Last Name</label>
+                  <input type="text" name="LNAME" class="text" id="mce-LNAME" value="">
+                </div>
+                <div class="mc-field-group">
+                  <label for="mce-PHONE">Phone Number</label>
+                  <input type="text" name="PHONE" class="REQ_CSS" id="mce-PHONE" value="">
+                </div>
+                <div class="mc-field-group">
+                  <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                  <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required value="">
+                </div>
+                <div id="mce-responses" class="clear foot">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+                <!-- bot trap — do not remove -->
+                <div aria-hidden="true" style="position:absolute; left:-5000px;">
+                  <input type="text" name="b_c7bdd64432cecf9e79937b43a_da9a0825af" tabindex="-1" value="">
+                </div>
+                <div class="clear foot">
+                  <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
          Personal Social Media
          ----------------------------------------------------------------- -->
     <section class="section social-section" id="social" aria-labelledby="social-heading">
@@ -407,6 +516,63 @@
   <script src="js/main.js" defer></script>
   <script src="js/easter-eggs.js" defer></script>
   <script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- Mailchimp validation -->
+  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script>
+    (function($) {
+      'use strict';
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      fnames[1]='FNAME'; ftypes[1]='text';
+      fnames[2]='LNAME'; ftypes[2]='text';
+      fnames[4]='PHONE'; ftypes[4]='phone';
+      fnames[0]='EMAIL'; ftypes[0]='email';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+
+  <!-- Auto-rotating music player -->
+  <script>
+    (function() {
+      'use strict';
+      var tabs   = document.querySelectorAll('.music-tab');
+      var panels = document.querySelectorAll('.music-panel');
+      var dots   = document.querySelectorAll('.music-rotator-dots .dot');
+      var current = 0;
+      var timer;
+
+      function showPanel(index) {
+        tabs.forEach(function(t, i) {
+          t.classList.toggle('active', i === index);
+          t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        panels.forEach(function(p, i) {
+          p.classList.toggle('active', i === index);
+          if (i === index) { p.removeAttribute('hidden'); }
+          else              { p.setAttribute('hidden', ''); }
+        });
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+        current = index;
+      }
+
+      function startTimer() {
+        timer = setInterval(function() {
+          showPanel((current + 1) % panels.length);
+        }, 20000);
+      }
+
+      tabs.forEach(function(tab, i) {
+        tab.addEventListener('click', function() {
+          showPanel(i);
+          clearInterval(timer);
+          startTimer();
+        });
+      });
+
+      if (tabs.length) { startTimer(); }
+    }());
+  </script>
 
 </body>
 </html>

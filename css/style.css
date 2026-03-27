@@ -1504,6 +1504,178 @@ ul {
 .reveal-delay-3 { transition-delay: 0.3s; }
 
 /* --------------------------------------------------------------------------
+   Side-by-side players (Bandcamp + Spotify on THHL)
+   -------------------------------------------------------------------------- */
+.players-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   Auto-rotating music player
+   -------------------------------------------------------------------------- */
+.music-rotator {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.music-rotator-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-sm);
+}
+
+.music-tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.music-tab:hover,
+.music-tab:focus-visible {
+  color: var(--text);
+  background: var(--surface-high);
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.music-tab.active {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: -1px;
+}
+
+.music-rotator-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: var(--gold);
+}
+
+/* --------------------------------------------------------------------------
+   Mailchimp signup section
+   -------------------------------------------------------------------------- */
+.mailchimp-form-wrap {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* Override Mailchimp default white theme */
+.mailchimp-form-wrap #mc_embed_signup {
+  background: transparent;
+  font-family: var(--font-body);
+  width: 100%;
+  color: var(--text);
+}
+
+.mailchimp-form-wrap #mc_embed_signup h2 {
+  display: none; /* heading handled by section header */
+}
+
+.mailchimp-form-wrap .indicates-required {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: var(--space-md);
+}
+
+.mailchimp-form-wrap .mc-field-group {
+  margin-bottom: var(--space-md);
+}
+
+.mailchimp-form-wrap .mc-field-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.mailchimp-form-wrap .mc-field-group input[type="text"],
+.mailchimp-form-wrap .mc-field-group input[type="email"] {
+  width: 100%;
+  background: var(--surface-high);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.mailchimp-form-wrap .mc-field-group input:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.mailchimp-form-wrap .asterisk {
+  color: var(--punk);
+}
+
+.mailchimp-form-wrap #mc-embedded-subscribe {
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: var(--space-sm);
+}
+
+.mailchimp-form-wrap #mc-embedded-subscribe:hover,
+.mailchimp-form-wrap #mc-embedded-subscribe:focus-visible {
+  background: var(--gold-light);
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.mailchimp-form-wrap #mce-error-response,
+.mailchimp-form-wrap #mce-success-response {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: var(--space-sm);
+}
+
+.mailchimp-form-wrap #mce-success-response {
+  color: var(--gold);
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
@@ -1561,6 +1733,14 @@ ul {
 
   .albums-grid {
     grid-template-columns: 1fr;
+  }
+
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-rotator-tabs {
+    flex-direction: column;
   }
 
   .album-card--featured {

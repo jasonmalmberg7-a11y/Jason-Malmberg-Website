@@ -1172,12 +1172,13 @@ ul {
 
 .album-card--featured .album-art {
   aspect-ratio: unset;
-  height: 100%;
-  min-height: 320px;
+  overflow: visible;
+  background: none;
 }
 
 .album-card--featured .album-art img {
-  object-fit: contain;
+  height: auto;
+  object-fit: unset;
 }
 
 .album-art-placeholder {
@@ -1564,10 +1565,6 @@ ul {
 
   .album-card--featured {
     grid-template-columns: 1fr;
-  }
-
-  .album-card--featured .album-art {
-    min-height: 260px;
   }
 
   .band-hero {

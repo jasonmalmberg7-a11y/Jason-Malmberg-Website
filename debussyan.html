@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Debussyan — punk band from the 90s. Jason Malmberg, Mike Coale, Nate Jensen. Music on Bandcamp.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:title" content="Debussyan">
+  <meta property="og:description" content="Punk band from the 90s. Still at it.">
+  <meta property="og:type" content="website">
+
+  <title>Debussyan — Jason Malmberg</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root {
+      --card-accent:    var(--punk);
+      --card-accent-hi: var(--punk-alt);
+    }
+
+    .dby-hero-bg {
+      background:
+        radial-gradient(ellipse 70% 50% at 30% 60%, rgba(232, 0, 61, 0.28) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(255, 0, 110, 0.08) 0%, transparent 60%);
+    }
+
+    .band-hero--dby .band-hero-label { color: var(--punk-alt); }
+
+    /* Punk slash accent bar */
+    .dby-slash-bar {
+      height: 5px;
+      background: linear-gradient(to right, var(--punk), var(--punk-alt), var(--gold));
+    }
+
+    /* Photo gallery */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .photo-tile {
+      aspect-ratio: 4 / 3;
+      background: var(--surface-high);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      transition: opacity 0.2s, transform 0.3s var(--ease-out);
+    }
+
+    .photo-tile:hover { opacity: 0.85; transform: scale(1.02); }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* Member list */
+    .members-list {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+    }
+
+    .members-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .members-list li:last-child { border-bottom: none; }
+
+    .member-name {
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  </script>
+  <script async src="//www.instagram.com/embed.js"></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- =====================================================================
+       Site Header
+       ===================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Jason Malmberg — Home">
+        JASON <span>MALMBERG</span>
+      </a>
+
+      <div class="nav-vu" aria-hidden="true">
+        <span style="height:40%"></span>
+        <span style="height:70%"></span>
+        <span style="height:90%"></span>
+        <span style="height:50%"></span>
+        <span style="height:80%"></span>
+      </div>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false"
+          aria-label="Toggle navigation menu" id="nav-toggle">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html#gigs">Gigs</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="this-house-has-lions.html">This House Has Lions</a></li>
+          <li><a href="nice-work.html">Nice Work</a></li>
+          <li><a href="metro-jazz.html">MJO</a></li>
+          <li><a href="debussyan.html" class="active">Debussyan</a></li>
+          <li><a href="index.html#social">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Main
+       ===================================================================== -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------
+         Band Hero
+         ----------------------------------------------------------------- -->
+    <section class="band-hero band-hero--dby" aria-labelledby="dby-hero-name">
+      <div class="band-hero-bg dby-hero-bg" aria-hidden="true"></div>
+      <div class="band-hero-overlay" aria-hidden="true"></div>
+
+      <div class="band-hero-content">
+        <a href="index.html" class="band-hero-label">← Jason Malmberg</a>
+        <h1 class="band-hero-name" id="dby-hero-name">
+          <span style="color: var(--punk);">PUNK</span><br>
+          DEBUSSYAN
+        </h1>
+        <p class="band-hero-tagline">
+          Punk band from the 90s. Still at it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Punk slash accent bar -->
+    <div class="dby-slash-bar" aria-hidden="true"></div>
+
+    <!-- -----------------------------------------------------------------
+         Social Links Bar
+         ----------------------------------------------------------------- -->
+    <div class="band-links-bar" role="navigation" aria-label="Debussyan links">
+      <div class="band-links-inner">
+
+        <a href="https://debussyan.bandcamp.com"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Debussyan on Bandcamp (opens in new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/>
+          </svg>
+          Bandcamp
+        </a>
+
+        <a href="https://www.instagram.com/debussyan_band/"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Debussyan on Instagram (opens in new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a href="https://www.facebook.com/Debussyan"
+           class="band-link-pill"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Debussyan on Facebook (opens in new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Facebook
+        </a>
+
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------------------
+         About
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="dby-about-heading">
+      <div class="section-inner">
+        <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+          <div class="reveal">
+            <span class="section-label">About</span>
+            <h2 class="section-title" id="dby-about-heading" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+              The Band
+            </h2>
+            <div style="margin-top: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 1rem;">
+              <p>
+                Debussyan is a punk band formed in the early 1990s by me and my friends
+                Mike Coale and Nate Jensen. We wrote and released our own music, played
+                with a few other great bands, and grew up in the process.
+              </p>
+            </div>
+
+            <ul class="members-list" aria-label="Band members">
+              <li>
+                <span class="member-name">Nate Jensen</span>
+                <span>Guitar and vocals</span>
+              </li>
+              <li>
+                <span class="member-name">Mike Coale</span>
+                <span>Drums and vocals</span>
+              </li>
+              <li>
+                <span class="member-name">Jason Malmberg</span>
+                <span>Bass and vocals</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <img src="images/debussyan-about.jpg" alt="Debussyan band photo"
+                 style="border-radius: 4px; border: 1px solid var(--border); width: 100%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Releases
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" aria-labelledby="dby-releases-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Music</span>
+          <h2 class="section-title" id="dby-releases-heading">Releases</h2>
+        </header>
+
+        <div class="albums-grid">
+
+          <!-- The Earnest -->
+          <article class="album-card reveal" aria-labelledby="dby-earnest-title">
+            <div class="album-art">
+              <img src="images/debussyan-album-earnest.jpg"
+                   alt="Debussyan — The Earnest album cover"
+                   onerror="this.style.display='none'">
+              <div class="album-art-placeholder" aria-hidden="true">DBY</div>
+              <span class="album-badge">Album</span>
+            </div>
+            <div class="album-body">
+              <h3 class="album-title" id="dby-earnest-title">The Earnest</h3>
+              <p class="album-year">Debussyan</p>
+              <iframe style="border: 0; width: 100%; height: 470px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=238889845/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                seamless
+                title="The Earnest by DEBUSSYAN on Bandcamp"
+                aria-label="Bandcamp player: The Earnest by DEBUSSYAN">
+                <a href="https://debussyan.bandcamp.com/album/the-earnest">The Earnest by DEBUSSYAN</a>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Kids -->
+          <article class="album-card reveal reveal-delay-1" aria-labelledby="dby-kids-title">
+            <div class="album-art">
+              <img src="images/debussyan-album-kids.jpg"
+                   alt="Debussyan — Kids album cover"
+                   onerror="this.style.display='none'">
+              <div class="album-art-placeholder" aria-hidden="true">DBY</div>
+              <span class="album-badge">Album</span>
+            </div>
+            <div class="album-body">
+              <h3 class="album-title" id="dby-kids-title">Kids</h3>
+              <p class="album-year">Debussyan</p>
+              <iframe style="border: 0; width: 100%; height: 470px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=3455315743/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                seamless
+                title="Kids by Debussyan on Bandcamp"
+                aria-label="Bandcamp player: Kids by Debussyan">
+                <a href="https://debussyan.bandcamp.com/album/kids">Kids by Debussyan</a>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Unreleased Kodros Sessions -->
+          <article class="album-card reveal" aria-labelledby="dby-kodros-title">
+            <div class="album-art">
+              <div class="album-art-placeholder" aria-hidden="true">DBY</div>
+              <span class="album-badge">Album</span>
+            </div>
+            <div class="album-body">
+              <h3 class="album-title" id="dby-kodros-title">Unreleased Kodros Sessions</h3>
+              <p class="album-year">Debussyan</p>
+              <iframe style="border: 0; width: 100%; height: 470px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=911900156/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                seamless
+                title="Unreleased Kodros Sessions by Debussyan on Bandcamp"
+                aria-label="Bandcamp player: Unreleased Kodros Sessions by Debussyan">
+                <a href="https://debussyan.bandcamp.com/album/unreleased-kodros-sessions">Unreleased Kodros Sessions by Debussyan</a>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Farewell -->
+          <article class="album-card reveal reveal-delay-1" aria-labelledby="dby-farewell-title">
+            <div class="album-art">
+              <div class="album-art-placeholder" aria-hidden="true">DBY</div>
+              <span class="album-badge">Album</span>
+            </div>
+            <div class="album-body">
+              <h3 class="album-title" id="dby-farewell-title">Farewell</h3>
+              <p class="album-year">Debussyan</p>
+              <iframe style="border: 0; width: 100%; height: 470px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=72917377/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                seamless
+                title="Farewell by Debussyan on Bandcamp"
+                aria-label="Bandcamp player: Farewell by Debussyan">
+                <a href="https://debussyan.bandcamp.com/album/farewell">Farewell by Debussyan</a>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Coming Soon: Kids vinyl LP -->
+          <article class="album-card reveal" aria-labelledby="dby-vinyl-title">
+            <div class="album-art">
+              <div class="album-art-placeholder" aria-hidden="true">2025</div>
+              <span class="album-badge album-badge--upcoming">Coming Soon</span>
+            </div>
+            <div class="album-body">
+              <h3 class="album-title" id="dby-vinyl-title">Kids — Vinyl LP</h3>
+              <p class="album-year">2025 · Debussyan</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6;">
+                Kids and The Earnest combined on a single vinyl LP. Coming in 2025.
+              </p>
+              <p style="font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">
+                Stay tuned →
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Social Media
+         ----------------------------------------------------------------- -->
+    <section class="section" aria-labelledby="dby-social-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Social</span>
+          <h2 class="section-title" id="dby-social-heading">Follow the Band</h2>
+        </header>
+
+        <div class="social-grid">
+
+          <!-- Instagram -->
+          <div class="social-block reveal">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--ig" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name">Instagram</div>
+                <div class="social-block-handle">@debussyan_band</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <div class="fb-embed-wrapper">
+                <blockquote class="instagram-media"
+                  data-instgrm-permalink="https://www.instagram.com/debussyan_band/?utm_source=ig_embed&amp;utm_campaign=loading"
+                  data-instgrm-version="14"
+                  style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);">
+                </blockquote>
+              </div>
+              <a href="https://www.instagram.com/debussyan_band/"
+                 class="social-cta"
+                 style="margin-top: 0.75rem; display: block;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Visit Debussyan on Instagram (opens in new tab)">
+                View on Instagram →
+              </a>
+            </div>
+          </div>
+
+          <!-- Facebook -->
+          <div class="social-block reveal reveal-delay-1">
+            <div class="social-block-header">
+              <div class="social-block-icon social-block-icon--fb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-block-name">Facebook</div>
+                <div class="social-block-handle">facebook.com/Debussyan</div>
+              </div>
+            </div>
+            <div class="social-block-content">
+              <div class="fb-embed-wrapper">
+                <div class="fb-page"
+                    data-href="https://www.facebook.com/Debussyan"
+                    data-tabs="timeline"
+                    data-width="500"
+                    data-height="500"
+                    data-small-header="true"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="false"
+                    aria-label="Debussyan Facebook page feed">
+                </div>
+              </div>
+              <a href="https://www.facebook.com/Debussyan"
+                 class="social-cta"
+                 style="margin-top: 0.75rem; display: block;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Visit Debussyan on Facebook (opens in new tab)">
+                View on Facebook →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Photos
+         ----------------------------------------------------------------- -->
+    <section class="section section-alt" aria-labelledby="dby-photos-heading">
+      <div class="section-inner">
+        <header class="section-header reveal">
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title" id="dby-photos-heading">Photos</h2>
+        </header>
+
+        <div class="photo-grid reveal">
+          <div class="photo-tile">
+            <img src="images/debussyan-live-1.jpg" alt="Debussyan live photo 1">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-2.jpg" alt="Debussyan live photo 2">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-3.jpg" alt="Debussyan live photo 3">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-4.jpg" alt="Debussyan live photo 4">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-5.jpg" alt="Debussyan live photo 5">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-6.jpg" alt="Debussyan live photo 6">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-7.jpg" alt="Debussyan live photo 7">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-8.jpg" alt="Debussyan live photo 8">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-9.jpg" alt="Debussyan live photo 9">
+          </div>
+          <div class="photo-tile">
+            <img src="images/debussyan-live-10.jpg" alt="Debussyan live photo 10">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------
+         Quote
+         ----------------------------------------------------------------- -->
+    <div class="quote-block reveal">
+      <blockquote>
+        "1! 2! 3! 4!"
+      </blockquote>
+      <cite>Dee Dee Ramone</cite>
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       Footer
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo" aria-hidden="true">DEBUSSYAN</div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">← Jason Malmberg</a>
+        <a href="https://debussyan.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+        <a href="https://www.instagram.com/debussyan_band/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/Debussyan" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="this-house-has-lions.html">This House Has Lions</a>
+        <a href="nice-work.html">Nice Work</a>
+        <a href="metro-jazz.html">MJO</a>
+      </nav>
+
+      <p class="footer-copy">
+        &copy; <span class="copy-year"></span> Jason Malmberg / Debussyan.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Easter egg overlays -->
+  <div id="pjm-overlay" role="dialog" aria-modal="true" aria-labelledby="pjm-title" hidden>
+    <h2 class="pjm-title" id="pjm-title">PUNK JAZZ<br>MODE</h2>
+    <p class="pjm-subtitle">You found the secret. The bassists who changed everything:</p>
+    <ul class="pjm-influences" role="list">
+      <li class="pjm-influence">Joe Lally</li>
+      <li class="pjm-influence">Dee Dee Ramone</li>
+      <li class="pjm-influence">Steve Youth</li>
+      <li class="pjm-influence">Roland Kirk</li>
+      <li class="pjm-influence">Charles Mingus</li>
+      <li class="pjm-influence">Jaco Pastorius</li>
+    </ul>
+    <button class="pjm-close" id="pjm-close">Close ✕</button>
+  </div>
+
+  <div id="count-in-toast" role="status" aria-live="assertive" aria-atomic="true">1! 2! 3! 4!</div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/easter-eggs.js" defer></script>
+
+</body>
+</html>

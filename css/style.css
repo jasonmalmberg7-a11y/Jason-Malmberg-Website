@@ -701,6 +701,7 @@ ul {
 .band-card--thhl { --card-accent: var(--thhl-red); --card-accent-hi: var(--thhl-red-hi); }
 .band-card--nwje { --card-accent: var(--nwje-blue); --card-accent-hi: var(--nwje-blue-hi); }
 .band-card--mjo  { --card-accent: var(--mjo-purple); --card-accent-hi: var(--mjo-purple-hi); }
+.band-card--dby  { --card-accent: var(--punk);       --card-accent-hi: var(--punk-alt); }
 
 .band-card:hover {
   border-color: var(--card-accent-hi);

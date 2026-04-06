@@ -843,6 +843,8 @@ ul {
 
 .social-block-icon--ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 .social-block-icon--fb { background: #1877f2; }
+.social-block-icon--email { background: var(--gold); }
+.social-block-icon--email svg { fill: #0a0a0a; }
 
 .social-block-icon svg {
   width: 18px;

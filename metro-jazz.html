@@ -41,20 +41,6 @@
       background: linear-gradient(to right, var(--mjo-purple), var(--gold), var(--mjo-purple-hi), var(--gold-light));
     }
 
-    /* MJO calendar accent — gold-left-border overrides with purple */
-    .mjo-calendar .gig-item {
-      border-left-color: var(--mjo-purple);
-    }
-
-    .mjo-calendar .gig-item:hover {
-      border-left-color: var(--mjo-purple-hi);
-    }
-
-    .mjo-calendar .gig-date-month,
-    .mjo-calendar .gig-info-meta {
-      color: var(--mjo-purple-hi);
-    }
-
     /* Section numbers — Big Band program feel */
     .program-number {
       font-family: var(--font-display);
@@ -218,15 +204,6 @@
           </svg>
           Facebook
         </a>
-
-        <a href="#mjo-calendar"
-           class="band-link-pill"
-           aria-label="Jump to MJO calendar section">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.103 0-2 .898-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.102-.897-2-2-2zm0 16H5V8h14v11z"/>
-          </svg>
-          Calendar
-        </a>
       </div>
     </div>
 
@@ -323,37 +300,6 @@
             </div>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- -----------------------------------------------------------------
-         Calendar
-         ----------------------------------------------------------------- -->
-    <section class="section section-alt" id="mjo-calendar" aria-labelledby="mjo-calendar-heading">
-      <div class="section-inner">
-        <header class="section-header reveal">
-          <span class="section-label">Dates</span>
-          <h2 class="section-title" id="mjo-calendar-heading">MJO Calendar</h2>
-          <p class="section-subtitle">
-            Concerts, festivals, and special events.
-          </p>
-        </header>
-
-        <!--
-          GOOGLE CALENDAR API KEY
-          Set your API key below — see js/calendar.js for full setup instructions.
-          The calendar ID is pre-filled from your existing Google Calendar embed.
-        -->
-        <script>window.GCAL_API_KEY = window.GCAL_API_KEY || 'AIzaSyBaCzSDjNja7GT7VRnDdjROrBc-DJFtJF0
-';</script>
-
-        <div class="calendar-container mjo-calendar"
-             data-calendar-id="281jducslueutpir5le8rv9194@group.calendar.google.com"
-             data-max-events="12"
-             data-gcal-fallback-url="https://calendar.google.com/calendar/embed?src=281jducslueutpir5le8rv9194%40group.calendar.google.com&ctz=America%2FDenver"
-             aria-label="Metropolitan Jazz Orchestra upcoming events calendar"
-             aria-live="polite">
         </div>
       </div>
     </section>
@@ -471,8 +417,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="index.html">← Jason Malmberg</a>
         <a href="https://www.facebook.com/MJO.Denver/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="#mjo-calendar">Calendar</a>
-        <a href="this-house-has-lions.html">This House Has Lions</a>
+<a href="this-house-has-lions.html">This House Has Lions</a>
         <a href="nice-work.html">Nice Work</a>
       </nav>
 
@@ -501,7 +446,6 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/easter-eggs.js" defer></script>
-  <script src="js/calendar.js" defer></script>
 
 </body>
 </html>

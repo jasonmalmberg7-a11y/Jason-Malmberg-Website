@@ -10,7 +10,8 @@
   <meta property="og:title" content="Jason Malmberg — Bassist & Bandleader">
   <meta property="og:description" content="Gigs, releases, and projects. Where punk meets jazz.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jasonmalmberg.com">
+  <meta property="og:url" content="https://jasonmalmberg.org">
+  <link rel="canonical" href="https://jasonmalmberg.org">
 
   <title>Jason Malmberg — Bassist & Bandleader</title>
 
@@ -141,16 +142,19 @@
           </p>
         </header>
 
-        <div class="calendar-container">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?src=09e3745d58406ceacfaa3c738f57e98ef8867fb4a2cbb0cbd57dcaaa1b41aa81%40group.calendar.google.com&ctz=America%2FDenver"
-            title="Jason Malmberg Gig Calendar"
-            width="100%"
-            height="600"
-            frameborder="0"
-            scrolling="no"
-            aria-label="Upcoming gigs calendar">
-          </iframe>
+        <!--
+          GOOGLE CALENDAR API KEY
+          Set your API key below — see js/calendar.js for full setup instructions.
+          The calendar ID is pre-filled from your existing Google Calendar embed.
+        -->
+        <script>window.GCAL_API_KEY = '';</script>
+
+        <div class="calendar-container"
+             data-calendar-id="09e3745d58406ceacfaa3c738f57e98ef8867fb4a2cbb0cbd57dcaaa1b41aa81@group.calendar.google.com"
+             data-max-events="12"
+             data-gcal-fallback-url="https://calendar.google.com/calendar/embed?src=09e3745d58406ceacfaa3c738f57e98ef8867fb4a2cbb0cbd57dcaaa1b41aa81%40group.calendar.google.com&ctz=America%2FDenver"
+             aria-label="Upcoming gigs calendar"
+             aria-live="polite">
         </div>
       </div>
     </section>
@@ -557,6 +561,7 @@
        ===================================================================== -->
   <script src="js/main.js" defer></script>
   <script src="js/easter-eggs.js" defer></script>
+  <script src="js/calendar.js" defer></script>
   <script async src="//www.instagram.com/embed.js"></script>
 
   <!-- Mailchimp validation -->

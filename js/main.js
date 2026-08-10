@@ -295,6 +295,94 @@ function initCountInToast() {
 }
 
 /* =========================================================================
+   Mailing List Popup
+   Auto-shows once per visitor, then never again. Reuses the same
+   Mailchimp form/endpoint as the #mailing-list section on the page.
+   ========================================================================= */
+function initMailingListPopup() {
+  const overlay = document.getElementById('ml-popup-overlay');
+  const closeBtn = document.getElementById('ml-popup-close');
+  const form = document.getElementById('mc-embedded-subscribe-form-popup');
+  if (!overlay || !closeBtn) return;
+
+  const STORAGE_KEY = 'mailingListPopupSeen';
+  const SHOW_DELAY_MS = 2500;
+
+  const hasBeenSeen = () => {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === 'true';
+    } catch (err) {
+      // localStorage unavailable (private mode, disabled, etc.) — don't nag repeatedly
+      return true;
+    }
+  };
+
+  const markAsSeen = () => {
+    try {
+      localStorage.setItem(STORAGE_KEY, 'true');
+    } catch (err) {
+      // Ignore — nothing we can do if storage is unavailable
+    }
+  };
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusable = overlay.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+    }
+  }
+
+  function openPopup() {
+    overlay.hidden = false;
+    overlay.classList.add('active');
+    closeBtn.focus();
+    overlay.addEventListener('keydown', trapFocus);
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    overlay.addEventListener('transitionend', () => {
+      overlay.hidden = true;
+    }, { once: true });
+    // Fallback in case there's no transition to wait on
+    setTimeout(() => { overlay.hidden = true; }, 400);
+    overlay.removeEventListener('keydown', trapFocus);
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePopup();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.hidden) closePopup();
+  });
+
+  // Signup success path: make sure the flag is set even if it somehow
+  // wasn't already (e.g. popup was shown before this code existed).
+  if (form) {
+    form.addEventListener('submit', () => {
+      markAsSeen();
+    });
+  }
+
+  if (hasBeenSeen()) return;
+
+  setTimeout(() => {
+    // Re-check — a visitor could have already dismissed/submitted via
+    // another tab, or the flag could have been set moments ago.
+    if (hasBeenSeen()) return;
+    markAsSeen();
+    openPopup();
+  }, SHOW_DELAY_MS);
+}
+
+/* =========================================================================
    Init All
    ========================================================================= */
 const body = document.body;
@@ -309,4 +397,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initPunkJazzMode();
   initCountInToast();
+  initMailingListPopup();
 });

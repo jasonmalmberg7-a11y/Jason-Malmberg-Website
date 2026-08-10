@@ -558,6 +558,55 @@
   <div id="count-in-toast" role="status" aria-live="assertive" aria-atomic="true">1! 2! 3! 4!</div>
 
   <!-- =====================================================================
+       Mailing List Popup — auto-shown once per visitor (see js/main.js)
+       Reuses the same Mailchimp list/endpoint as the #mailing-list section.
+       ===================================================================== -->
+  <div id="ml-popup-overlay" class="ml-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="ml-popup-title" hidden>
+    <div class="ml-popup">
+      <button type="button" class="ml-popup-close" id="ml-popup-close" aria-label="Close signup popup">✕</button>
+
+      <div class="ml-popup-content">
+        <span class="section-label">Stay in the Loop</span>
+        <h2 class="ml-popup-title" id="ml-popup-title">Join the List</h2>
+        <p class="ml-popup-subtitle">Gig announcements, new releases, and updates — straight to your inbox.</p>
+
+        <div class="mailchimp-form-wrap ml-popup-form">
+          <div id="mc_embed_signup_popup">
+            <form action="https://github.us6.list-manage.com/subscribe/post?u=c7bdd64432cecf9e79937b43a&amp;id=da9a0825af&amp;f_id=000f71e0f0"
+                  method="post"
+                  id="mc-embedded-subscribe-form-popup"
+                  name="mc-embedded-subscribe-form-popup"
+                  class="validate"
+                  target="_blank">
+              <div id="mc_embed_signup_scroll_popup">
+                <div class="mc-field-group">
+                  <label for="popup-mce-FNAME">First Name</label>
+                  <input type="text" name="FNAME" class="text" id="popup-mce-FNAME" value="">
+                </div>
+                <div class="mc-field-group">
+                  <label for="popup-mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                  <input type="email" name="EMAIL" class="required email" id="popup-mce-EMAIL" required value="">
+                </div>
+                <div id="mce-responses-popup" class="clear foot">
+                  <div class="response" id="mce-error-response-popup" style="display:none"></div>
+                  <div class="response" id="mce-success-response-popup" style="display:none"></div>
+                </div>
+                <!-- bot trap — do not remove -->
+                <div aria-hidden="true" style="position:absolute; left:-5000px;">
+                  <input type="text" name="b_c7bdd64432cecf9e79937b43a_da9a0825af" tabindex="-1" value="">
+                </div>
+                <div class="clear foot">
+                  <input type="submit" name="subscribe" id="mc-embedded-subscribe-popup" class="button" value="Subscribe">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
        Scripts
        ===================================================================== -->
   <script src="js/main.js" defer></script>

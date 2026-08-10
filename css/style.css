@@ -1791,6 +1791,158 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
+   Mailing List Popup
+   Reuses .mailchimp-form-wrap for field/label/input/asterisk styling.
+   Element IDs differ from the inline form (duplicate IDs aren't valid HTML),
+   so the container/button/response styles are restated here for those IDs.
+   -------------------------------------------------------------------------- */
+.ml-popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.ml-popup-overlay.active {
+  display: flex;
+  animation: ml-popup-fade 0.3s ease-out;
+}
+
+@keyframes ml-popup-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ml-popup {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: ml-popup-appear 0.35s var(--ease-out);
+}
+
+@keyframes ml-popup-appear {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ml-popup-overlay.active,
+  .ml-popup {
+    animation: none;
+  }
+}
+
+.ml-popup-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ml-popup-close:hover,
+.ml-popup-close:focus-visible {
+  border-color: var(--punk);
+  color: var(--punk);
+  outline: 2px solid var(--punk);
+  outline-offset: 2px;
+}
+
+.ml-popup-content {
+  text-align: center;
+}
+
+.ml-popup-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.ml-popup-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.ml-popup-form {
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.ml-popup-form #mc_embed_signup_popup {
+  background: transparent;
+  font-family: var(--font-body);
+  width: 100%;
+  color: var(--text);
+}
+
+.ml-popup-form #mc-embedded-subscribe-popup {
+  width: 100%;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: var(--space-sm);
+}
+
+.ml-popup-form #mc-embedded-subscribe-popup:hover,
+.ml-popup-form #mc-embedded-subscribe-popup:focus-visible {
+  background: var(--gold-light);
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.ml-popup-form #mce-error-response-popup,
+.ml-popup-form #mce-success-response-popup {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: var(--space-sm);
+}
+
+.ml-popup-form #mce-success-response-popup {
+  color: var(--gold);
+}
+
+@media (max-width: 480px) {
+  .ml-popup {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {

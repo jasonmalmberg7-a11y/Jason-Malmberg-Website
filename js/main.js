@@ -295,17 +295,40 @@ function initCountInToast() {
 }
 
 /* =========================================================================
+   Modal Manager
+   Small shared coordinator so popups on this site never stack. Each popup
+   asks permission before opening and reports back when it closes.
+   ========================================================================= */
+const ModalManager = (function () {
+  let openId = null;
+
+  return {
+    requestOpen(id) {
+      if (openId !== null) return false;
+      openId = id;
+      return true;
+    },
+    notifyClosed(id) {
+      if (openId === id) openId = null;
+    }
+  };
+})();
+
+/* =========================================================================
    Mailing List Popup
    Auto-shows once per visitor, then never again. Reuses the same
    Mailchimp form/endpoint as the #mailing-list section on the page.
    ========================================================================= */
+const ML_POPUP_STORAGE_KEY = 'mailingListPopupSeen';
+const ML_POPUP_MODAL_ID = 'mailing-list';
+
 function initMailingListPopup() {
   const overlay = document.getElementById('ml-popup-overlay');
   const closeBtn = document.getElementById('ml-popup-close');
   const form = document.getElementById('mc-embedded-subscribe-form-popup');
   if (!overlay || !closeBtn) return;
 
-  const STORAGE_KEY = 'mailingListPopupSeen';
+  const STORAGE_KEY = ML_POPUP_STORAGE_KEY;
   const SHOW_DELAY_MS = 2500;
 
   const hasBeenSeen = () => {
@@ -351,6 +374,7 @@ function initMailingListPopup() {
     // Fallback in case there's no transition to wait on
     setTimeout(() => { overlay.hidden = true; }, 400);
     overlay.removeEventListener('keydown', trapFocus);
+    ModalManager.notifyClosed(ML_POPUP_MODAL_ID);
   }
 
   closeBtn.addEventListener('click', closePopup);
@@ -377,7 +401,137 @@ function initMailingListPopup() {
     // Re-check — a visitor could have already dismissed/submitted via
     // another tab, or the flag could have been set moments ago.
     if (hasBeenSeen()) return;
+    if (!ModalManager.requestOpen(ML_POPUP_MODAL_ID)) return;
     markAsSeen();
+    openPopup();
+  }, SHOW_DELAY_MS);
+}
+
+/* =========================================================================
+   Ticket Popup — Config
+   Edit these two constants to change frequency or retire the popup.
+   ========================================================================= */
+const TICKET_POPUP_MIN_HOURS = 24; // Min hours between shows, per visitor. 0 = show on every page load.
+const TICKET_POPUP_END_DATE = '2026-10-03'; // Popup stops appearing after this date (visitor's local time).
+
+/* =========================================================================
+   Ticket Popup — Record Release Show
+   Shows on returning visits only: it never appears on a visitor's first
+   visit, since the mailing list popup above takes priority that visit
+   (see the isFirstVisit check below). Coordinates with the mailing list
+   popup through ModalManager so the two never overlap.
+   ========================================================================= */
+function initTicketPopup() {
+  const overlay = document.getElementById('ticket-popup-overlay');
+  const closeBtn = document.getElementById('ticket-popup-close');
+  const dismissBtn = document.getElementById('ticket-popup-dismiss');
+  if (!overlay || !closeBtn) return;
+
+  const STORAGE_KEY = 'ticketPopupLastShown';
+  const SHOW_DELAY_MS = 2500;
+  const MODAL_ID = 'ticket';
+
+  // Decided once, at page load, before either popup's timer can fire —
+  // so it can't be affected by the mailing list popup marking itself
+  // "seen" later in this same page view.
+  const isFirstVisit = (() => {
+    try {
+      return localStorage.getItem(ML_POPUP_STORAGE_KEY) !== 'true';
+    } catch (err) {
+      // Mailing list popup treats storage failure as "already seen" —
+      // mirror that here so the two stay in sync.
+      return false;
+    }
+  })();
+
+  const isExpired = () => {
+    const [y, m, d] = TICKET_POPUP_END_DATE.split('-').map(Number);
+    const end = new Date(y, m - 1, d, 23, 59, 59, 999);
+    return Date.now() > end.getTime();
+  };
+
+  const isDue = () => {
+    if (TICKET_POPUP_MIN_HOURS <= 0) return true;
+    try {
+      const last = localStorage.getItem(STORAGE_KEY);
+      if (!last) return true;
+      const elapsedHours = (Date.now() - Number(last)) / 3600000;
+      return elapsedHours >= TICKET_POPUP_MIN_HOURS;
+    } catch (err) {
+      return true; // localStorage unavailable — fail open
+    }
+  };
+
+  const markShown = () => {
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+    } catch (err) {
+      // Ignore — nothing we can do if storage is unavailable
+    }
+  };
+
+  let lastFocused = null;
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusable = overlay.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+    }
+  }
+
+  function openPopup() {
+    lastFocused = document.activeElement;
+    body.classList.add('modal-open');
+    overlay.hidden = false;
+    overlay.classList.add('active');
+    closeBtn.focus();
+    overlay.addEventListener('keydown', trapFocus);
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    overlay.addEventListener('transitionend', () => {
+      overlay.hidden = true;
+    }, { once: true });
+    // Fallback in case there's no transition to wait on
+    setTimeout(() => { overlay.hidden = true; }, 400);
+    overlay.removeEventListener('keydown', trapFocus);
+    body.classList.remove('modal-open');
+    ModalManager.notifyClosed(MODAL_ID);
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', closePopup);
+  }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePopup();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.hidden) closePopup();
+  });
+
+  // First-visit visitors sit this page view out entirely — not queued
+  // behind the mailing list popup, not shown after it closes.
+  if (isFirstVisit) return;
+  if (isExpired() || !isDue()) return;
+
+  setTimeout(() => {
+    // Re-check — the popup could have expired, or another tab could have
+    // shown/dismissed it, in the time since the page loaded.
+    if (isExpired() || !isDue()) return;
+    if (!ModalManager.requestOpen(MODAL_ID)) return;
+    markShown();
     openPopup();
   }, SHOW_DELAY_MS);
 }
@@ -398,4 +552,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPunkJazzMode();
   initCountInToast();
   initMailingListPopup();
+  initTicketPopup();
 });

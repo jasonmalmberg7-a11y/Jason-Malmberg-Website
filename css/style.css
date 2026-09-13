@@ -1943,6 +1943,160 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
+   Ticket Popup — Record Release Show
+   Same overlay/dialog pattern as .ml-popup above.
+   -------------------------------------------------------------------------- */
+.ticket-popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.ticket-popup-overlay.active {
+  display: flex;
+  animation: ml-popup-fade 0.3s ease-out;
+}
+
+.ticket-popup {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: ml-popup-appear 0.35s var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket-popup-overlay.active,
+  .ticket-popup {
+    animation: none;
+  }
+}
+
+.ticket-popup-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ticket-popup-close:hover,
+.ticket-popup-close:focus-visible {
+  border-color: var(--punk);
+  color: var(--punk);
+  outline: 2px solid var(--punk);
+  outline-offset: 2px;
+}
+
+.ticket-popup-content {
+  text-align: center;
+}
+
+.ticket-popup-art {
+  display: block;
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 auto var(--space-md);
+  border: 1px solid var(--border);
+}
+
+.ticket-popup-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.ticket-popup-band {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+}
+
+.ticket-popup-album {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--thhl-red-hi);
+  font-size: 1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.ticket-popup-details {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.ticket-popup-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+.ticket-popup-dismiss {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  margin-top: var(--space-md);
+  padding: var(--space-xs);
+}
+
+.ticket-popup-dismiss:hover,
+.ticket-popup-dismiss:focus-visible {
+  color: var(--text);
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .ticket-popup {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+  }
+
+  .ticket-popup-art {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Scroll lock while any modal that opts in (currently: ticket popup) is open. */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {

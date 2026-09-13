@@ -607,6 +607,42 @@
   </div>
 
   <!-- =====================================================================
+       Ticket Popup — Record Release Show
+       Shown to returning visitors only (see js/main.js): never appears on a
+       visitor's first visit, since the mailing list popup above takes
+       priority that visit. Coordinated with it through ModalManager so the
+       two never overlap.
+       ===================================================================== -->
+  <div id="ticket-popup-overlay" class="ticket-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="ticket-popup-title" hidden>
+    <div class="ticket-popup">
+      <button type="button" class="ticket-popup-close" id="ticket-popup-close" aria-label="Close ticket popup">✕</button>
+
+      <div class="ticket-popup-content">
+        <!-- TO ADD ALBUM ART: save the "Constructive Course" cover art to
+             images/thhl-constructive-course.jpg (square, ~600×600px
+             recommended). It's already referenced below — until the file
+             exists, this image will show broken. -->
+        <img src="images/thhl-constructive-course.jpg"
+             alt="Constructive Course album cover — This House Has Lions"
+             class="ticket-popup-art"
+             width="200" height="200"
+             loading="eager">
+
+        <h2 class="ticket-popup-title" id="ticket-popup-title">Record Release Show</h2>
+        <p class="ticket-popup-band">This House Has Lions</p>
+        <p class="ticket-popup-album">Constructive Course</p>
+        <p class="ticket-popup-details">Friday, October 2 &mdash; The Muse Performance Space, Lafayette</p>
+
+        <a href="https://tickets.venuepilot.com/e/this-house-has-lions-2026-10-02-muse-performance-space-lafayette-f9ccd3"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-primary ticket-popup-cta">Get Tickets</a>
+
+        <button type="button" class="ticket-popup-dismiss" id="ticket-popup-dismiss">No thanks</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
        Scripts
        ===================================================================== -->
   <script src="js/main.js" defer></script>

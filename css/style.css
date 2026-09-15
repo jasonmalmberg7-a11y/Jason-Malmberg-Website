@@ -1410,6 +1410,10 @@ ul {
 }
 
 /* Personnel credits */
+.album-personnel-block {
+  margin-top: var(--space-md);
+}
+
 .album-personnel {
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -1419,7 +1423,7 @@ ul {
 
 .album-personnel div {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35em;
 }
 

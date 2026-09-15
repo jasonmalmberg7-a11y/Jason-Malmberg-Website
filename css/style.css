@@ -1425,6 +1425,7 @@ ul {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.35em;
+  white-space: nowrap;
 }
 
 .album-personnel dt {

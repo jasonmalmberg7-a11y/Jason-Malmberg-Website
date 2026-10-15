@@ -127,7 +127,9 @@ content: update THHL album info
 ### This House Has Lions (`this-house-has-lions.html`)
 - Hero, links bar (Bandcamp · Instagram · Facebook)
 - About section
-- Albums: debut album + upcoming album (both with Bandcamp embed placeholders)
+- Releases: Constructive Course + self-titled debut cards (same layout: label/format line,
+  Side A / Side B track list with writer credits, personnel); "Order the vinyl" CTA on Constructive Course
+- Listen: Bandcamp + Spotify players below both release cards (not tied to one album)
 - Social: Instagram grid + Facebook Page Plugin
 - Photo gallery (placeholder grid)
 - Roland Kirk quote

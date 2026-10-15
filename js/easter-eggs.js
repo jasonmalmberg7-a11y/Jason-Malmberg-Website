@@ -158,7 +158,7 @@
     if (buffer === TARGET) {
       buffer = '';
       showQuoteFlash({
-        quote:  '"I\'m the greatest bass player in the world... and you can't argue with me."',
+        quote:  '"I\'m the greatest bass player in the world... and you can\'t argue with me."',
         source: 'Jaco Pastorius',
         color:  '#e8003d', // punk red — Jaco was punk in his own way
       });

@@ -1455,6 +1455,26 @@ ul {
   box-shadow: 0 6px 24px rgba(201, 162, 39, 0.25);
 }
 
+/* Cards with an order CTA: stretch the body so the buttons line up across the row */
+.album-card:has(.album-order-btn) {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-card:has(.album-order-btn) .album-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-card:has(.album-order-btn) .album-personnel-block {
+  margin-bottom: var(--space-lg);
+}
+
+.album-card:has(.album-order-btn) .album-order-btn {
+  margin-top: auto;
+}
+
 /* Listen block — band-wide players below the release cards */
 .listen-block {
   margin-top: var(--space-xl);
